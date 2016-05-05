@@ -10,16 +10,16 @@
 # Angle forces players to look at entities they want to attack
 angle:
    # Do you want to enable the angle check
-   enabled: false
+   enabled: true
    
    # How far off the entity should the player be able to look
-   max_diff: 0.30
+   max_diff: 0.65
 
    # How far off a player should the attacker be able to look?
-   max_player_diff: 0.15
+   max_player_diff: 0.30
    
    # How close must the players be to bypass the angle check?
-   min_dist: 2.0
+   min_dist: 3.5
    
    # Should AAC cancel false hits
    cancel_false_hits: true
@@ -37,7 +37,7 @@ badpackets:
    # After how many moves should packets be cancelled?
    # A lower value reduces the possibility of blinking and exploits and improves performance.
    # A higher value will reduce the number of false positives. This should always be above 3.
-   cancel_threshold: 7
+   cancel_threshold: 4
    
    # How many moves should a player be able to send in 3 ticks
    # An unmodified client should send 3 moves in 3 ticks. Be sure to think about lag
@@ -139,7 +139,7 @@ fly:
    natural_allow: 2.1
 
    # Should players be teleported back down if detected?
-   teleport: true
+   teleport: false
    
    # Map of violation levels to commands
    thresholds:
@@ -193,7 +193,7 @@ speed:
       bypass_band: true
 
    # How many times should a player be allowed to toggle sneak in a second
-   max_sneak_toggles: 5
+   max_sneak_toggles: 9
 
    # How many times should a player be allowed to toggle use in a second
    max_use_toggles: 22
@@ -235,10 +235,10 @@ forcefield:
    # Do you want to enable the forcefield check
    enabled: true
    
-   # Do you want the player above you to be invisible
-   # *HIGHLY* recommended to be kept at false.
-   # The majority of hacked clients do not target invisible entities.
-   # If you change this to true, killaura detection will be severely slowed down. Best idea would be to ask your players to ignore it.
+   # Do you want the primary Kill-Aura entity to be visible or invisible
+   # Most hacked clients allow you to toggle whether you attack 
+   # invisible players or not. It's a way of bypassing bad AntiCheats
+   # I recommend keeping this to false unless players despise it. 
    head_player_invisible: false
 
    # You can make the head player invisible when the player isn't fighting
