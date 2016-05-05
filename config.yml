@@ -2,19 +2,6 @@
 #### Rechosen by Caleb Anderson, Developer of KnightFall
 #### You shouldn't recieve too many false positives using this Config. If you do, another plugin is preventing AAC from working correctly
 #
-# NOTE: Most of the values here have been tried and tested to work.
-#       It is not recommended that you change them unless you are
-#       getting false positives.
-#
-#       It would be a good idea to make sure the false positives you're getting aren't actually hackers....
-#
-#
-# The configurable commands will replace "{player}" with the name of the player.
-# You can run multiple commands on a single threshold by creating 2 entries with the same key:
-#  thresholds:
-#     10:
-#      - "broadcast {player} was kicked for hacking"
-#      - "kick {player} hacking"
 #
 # Be sure to check language.yml for configuration regarding staff chat, etc.
 #
@@ -23,7 +10,7 @@
 # Angle forces players to look at entities they want to attack
 angle:
    # Do you want to enable the angle check
-   enabled: true
+   enabled: false
    
    # How far off the entity should the player be able to look
    max_diff: 0.30
@@ -298,9 +285,9 @@ forcefield:
    
    # Map of violation levels to commands
    thresholds:
-      8: "aacstaffnotify {player} is attacking suspiciously. AAC is contacting KnightFall servers to evaluate them. Please Wait..."
-      14: "aacstaffnotify {player} has been evaluated and is confirmed to be using an Aura Combat Modification. Please Wait..."
-      16: "aacban {player} Illegal Client Modifications"
+      8: "aacstaffnotify {player} is attacking suspiciously."
+      14: "aacstaffnotify {player} is using an Aura Combat Modification."
+      16: "aacban {player} Aura"
    
 # Knockback checks if the player moves after he is hit
 knockback:
