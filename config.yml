@@ -27,7 +27,7 @@ angle:
    # Map of violation levels to commands
    thresholds:
       6: "aacstaffnotify  {player} is attacking at suspicious angles. Please Investigate."
-      12: "aackick {player} You were kicked for suspicious combat. Remove all blacklisted modifications to avoid further punishment!"
+      12: "ban {player} Illegal Combat Modifications"
 
 # BadPackets prevents players from using packets to exploit the server
 badpackets:
@@ -47,7 +47,7 @@ badpackets:
    # Map of violation levels to commands
    thresholds:
       30: "aacstaffnotify {player} is sending incorrect data to the server. Please Investigate."
-      70: "aackick {player} You were kicked for suspicious combat. Remove all blacklisted modifications to avoid further punishment!"
+      70: "ban {player} Illegal Client Modifications"
    
 # Criticals prevents players from getting critical hits when it's not possible
 criticals:
@@ -60,7 +60,7 @@ criticals:
    # Map of violation levels to commands
    thresholds:
       1: "aacstaffnotify {player} is attacking suspiciously. Please Investigate."
-      3: "aackick {player} Suspicious Combat"
+      3: "ban {player} Suspicious Combat"
 
 # Fastbow prevents players from shooting their bow too quickly
 fastbow:
@@ -78,7 +78,7 @@ fastbow:
    # Map of violation levels to commands
    thresholds:
       3: "aacstaffnotify {player} is attacking suspiciously. Please Investigate."
-      12: "aackick {player} You were kicked for suspicious combat. Remove all blacklisted modifications to avoid further punishment!"
+      12: "ban {player} Illegal Combat Modifications"
 
 # FightSpeed prevents players from attacking too quickly
 fightspeed:
@@ -87,12 +87,12 @@ fightspeed:
    
    # How many times should a player be able to attack in 1 second
    # NoCheatPlus's fightspeed check allows 15 hits per second
-   max_hits_per_second: 16
+   max_hits_per_second: 18
    
    # Map of violation levels to commands
    thresholds:
       8: "aacstaffnotify {player} is attacking at irregular speeds. Please Investigate."
-      15: "aackick {player} You were kicked for suspicious combat. Remove all blacklisted modifications to avoid further punishment!"
+      15: "ban {player} Illegal Combat Modifications"
 
 # NormalMovements stops players from moving unexpectedly
 normalmovements:
@@ -144,12 +144,12 @@ fly:
    # Map of violation levels to commands
    thresholds:
       15: "aacstaffnotify {player} is moving suspiciously. Please Investigate. [{ping}-{tps}]"
-      30: "aackick {player} You were kicked for suspicious combat. Remove all blacklisted modifications to avoid further punishment!"
+      30: "warn {player} [KnightFall] Suspicious Movement. Be Careful!"
    
 # Speed kicks players who move too quickly
 speed:
    # Do you want to enable the speed check
-   enabled: true
+   enabled: false
 
    # Speed limits per tick
    sprinting_speed: 0.415
@@ -228,7 +228,7 @@ headroll:
    # Map of violation levels to commands
    thresholds:
       1: "aacstaffnotify {player} appears to be headsnapping. Please Investigate."
-      2: "aackick {player} You were kicked for suspicious combat. Remove all blacklisted modifications to avoid further punishment!"
+      2: "ban {player} Illegal Client Modifications"
 
 # Forcefield detects combat hacks which hit entities around the player
 forcefield:
@@ -250,7 +250,7 @@ forcefield:
    # How high above the player should the headplayer be spawned?
    # Anything under 2.7 could affect hit detection
    # Anything above 4.5 could be out of range of the player
-   head_player_height: 2.7
+   head_player_height: 3.0
    
    # Should the head player be moved away if the player looks up?
    # This is to prevent players from creating false positives by hitting the head player (if it is visible)
@@ -264,16 +264,16 @@ forcefield:
    # Use player names and gameprofiles from past players instead of random profiles
    # This can be extremely useful in preventing bypasses, as the player's details are completely legitimate
    # This setting has no effect if online_player_names is true.
-   past_player_names: true
+   past_player_names: false
 
    # Should the head player use profiles of players online right now?
    # If you have nametag plugins that use the scoreboard, turn this off
    # Otherwise, keep this on as it patches a massive number of possible bypasses
-   online_player_names: true
+   online_player_names: false
 
    # Do you want to keep the head player in the tab list?
    # This can prevent bypasses where the the client checks that the name is in the tablist, before hitting it.
-   head_tablist: true
+   head_tablist: false
 
    # Packet level configuration options
    magic:
@@ -287,7 +287,7 @@ forcefield:
    thresholds:
       8: "aacstaffnotify {player} is attacking suspiciously."
       14: "aacstaffnotify {player} is using an Aura Combat Modification."
-      16: "aacban {player} Aura"
+      16: "ban {player} Illegal Combat Modification [Sentry]"
    
 # Knockback checks if the player moves after he is hit
 knockback:
@@ -301,7 +301,7 @@ knockback:
    add_ping: true
 
    # What's the maximum ping value AAC should compensate to (pingspoof?)
-   max_ping: 500
+   max_ping: 700
 
    # What's the minimum distance a player should be knocked back
    min_knockback_dist: 0.01
@@ -312,7 +312,7 @@ knockback:
    # Map of violation levels to commands
    thresholds:
       9: "aacstaffnotify {player} isn't taking legitimate knockback. Please Investigate. [{ping}-{tps}]"
-      16: "aackick {player} You were kicked for suspicious combat. Remove all blacklisted modifications to avoid further punishment!"
+      16: "kick {player} Incorrect Knockback"
 
 # Reach checks if entites the player hits are close enough to the player
 reach:
@@ -331,17 +331,17 @@ reach:
    # Map of violation levels to commands
    thresholds:
       15: "aacstaffnotify {player} is attacking targets farther than usual. Please Investigate!"
-      32: "aackick {player} You were kicked for suspicious combat. Remove all blacklisted modifications to avoid further punishment!"
+      32: "ban {player} Illegal Combat Modifications"
 
 # NoSwing makes sure players swing their arm when attacking
 noswing:
    # Do you want to enable the noswing check
-   enabled: true
+   enabled: false
 
    # Map of violation levels to commands
    thresholds:
       8: "aacstaffnotify {player} is damaging players without attacking them. Please Investigate."
-      22: "aackick {player} You were kicked for suspicious combat. Remove all blacklisted modifications to avoid further punishment!"
+      22: "kick {player} You were kicked for suspicious combat. Remove all blacklisted modifications to avoid further punishment!"
 
 # Regen directly stops players from healing too quickly
 regen:
@@ -357,7 +357,7 @@ regen:
    # Map of violation levels to commands
    thresholds:
       8: "aacstaffnotify {player} is healing illegitimately. Please Investigate!"
-      15: "aackick {player} You were kicked for suspicious combat. Remove all blacklisted modifications to avoid further punishment!"
+      15: "ban {player} Illegal Client Modifications"
 
 # Killaura detects combat hacks which give an unfair advantage
 killaura:
@@ -380,7 +380,7 @@ killaura:
       listen_delay: 6
 
       # How far away must 2 players be to be checked?
-      min_dist: 2.0
+      min_dist: 3.4
 
       # How long should the NPC be spawned for?
       ticks_spawned: 9
@@ -415,7 +415,7 @@ killaura:
    # Map of violation levels to commands
    thresholds:
       9: "aacstaffnotify {player} is attacking suspiciously. Please Investigate!"
-      16: "aacban {player} KillAura/ForceField"
+      16: "ban {player} Illegal Client Modifications [Sentry]"
 
 # CombatImpossible cancels hits which cannot happen normally
 combatimpossible:
@@ -446,7 +446,7 @@ nofall:
    # Map of violation levels to commands
    thresholds:
       10: "aacstaffnotify {player} is not taking fall damage. Please Investigate."
-      30: "aackick {player} You were kicked for suspicious combat. Remove all blacklisted modifications to avoid further punishment!"
+      30: "kick {player} You were kicked for suspicious movement. Remove any blacklisted modifications to avoid further punishment!"
 
 # Glide ensures players fall at the right speed
 glide:
@@ -466,7 +466,7 @@ glide:
    thresholds:
       25: "aacstaffnotify {player} is moving suspiciously, possibly trying to Fly. "
       45: "aacstaffnotify {player} has been confirmed of attempting to use Flight."
-      65: "aackick {player} You were kicked for suspicious movement. Remove all blacklisted modifications to avoid further punishment!"
+      65: "kick {player} You were kicked for suspicious movement. Remove all blacklisted modifications to avoid further punishment!"
 
 # Climb stops people climbing ladders too quickly
 climb:
@@ -485,7 +485,7 @@ climb:
    # Map of violation levels to commands
    thresholds:
       15: "aacstaffnotify {player} moving suspiciously. Please Investigate."
-      30: "aackick {player} Suspicious Movement"
+      30: "kick {player} Suspicious Movement"
 
 # Jesus stops people from walking on water
 jesus:
@@ -493,13 +493,13 @@ jesus:
    enabled: true
 
    # Should Jesus teleport players?
-   teleport: true
+   teleport: false
 
    # Map of violation levels to commands
    thresholds:
       10: "aacstaffnotify {player} is moving suspiciously."
       30: "aacstaffnotify {player} has been confirmed of attempting to use Jesus"
-      50: "aackick {player} Suspicious Movement"
+      50: "kick {player} Suspicious Movement"
 
 # Phase stops people glitching through blocks
 phase:
@@ -519,7 +519,7 @@ phase:
    thresholds:
       10: "aacstaffnotify {player} is moving suspiciously."
       30: "aacstaffnotify {player} has been confirmed of attempting to Phase/vClip"
-      50: "aackick {player} Suspicious Movement"
+      50: "kick {player} Suspicious Movement"
 
 # FastUse stops players consuming items too quickly
 fastuse:
@@ -532,7 +532,7 @@ fastuse:
    # Map of violation levels to commands
    thresholds:
       5: "aacstaffnotify {player} is interacting suspiciously. Please Investigate."
-      9: "aackick {player} Suspicious Activity"
+      9: "kick {player} Suspicious Activity"
 
 # FastBreak stops players from breaking blocks too quickly
 fastbreak:
@@ -540,7 +540,7 @@ fastbreak:
    enabled: true
 
    # How many ticks should fastbreak count as lag, and ignore
-   let_ticks: 2
+   let_ticks: 4
 
    # Should AAC cancel an illegal block break?
    cancel_break: true
@@ -551,7 +551,7 @@ fastbreak:
    # Map of violation levels to commands
    thresholds:
       10: "aacstaffnotify {player} is interacting suspiciously. Please Investigate."
-      20: "aackick {player} Suspicious Activity"
+      20: "kick {player} Suspicious Activity"
 
 # FastPlace stops players from placing blocks too quickly
 fastplace:
@@ -567,7 +567,7 @@ fastplace:
    # Map of violation levels to commands
    thresholds:
       10: "aacstaffnotify {player} is interacting suspiciously. Please Investigate."
-      20: "aackick {player} Suspicious Activity"
+      20: "kick {player} Suspicious Activity"
 
 # Nuker stops players from breaking too many blocks at once
 nuker:
@@ -583,7 +583,7 @@ nuker:
    # Map of violation levels to commands
    thresholds:
       5: "aacstaffnotify {player} is interacting suspiciously. Please Investigate."
-      10: "aackick {player} Suspicious Activity"
+      10: "kick {player} Suspicious Activity"
 
 # ImpossibleInteract stops players interacting with blocks they can't
 impossibleinteract:
@@ -639,7 +639,7 @@ spam:
    # Map of violation levels to commands
    thresholds:
       10: "aacstaffnotify {player} is probably spamming."
-      15: "aackick {player} Abuse of Chat will Result in a PermaMute."
+      15: "warn {player} Continued Spamming Will Result in Further Punishments."
 
 ### General things
 
@@ -650,7 +650,7 @@ ban_threshold: 1
 ban_command: "ban {player}"
 
 # How long after a player is kicked should he be allowed to log in (ticks)
-kick_ticks: 120
+kick_ticks: 1
 
 # How long before a player leaves combat after dealing/taking damage
 # Don't set this to 0 or -1, it's crucial for the forcefield and killaura checks. Change kill_loggers only to disable combat logging.
@@ -666,14 +666,14 @@ log_file: true
 log_console: true
 
 # Should /aackick broadcast a message?
-aackick_broadcast: true
+aackick_broadcast: false
 
 # Should AAC disable/enable checks dynamically? IF YOU HAVE PWP DISABLE
 usetps: true
 
 # Disable the command /aac? If you really want to ;(
-aac: false
+aac: true
 
 # Enable verbose logging? This will allow those with the AAC.verbose permission to get spammed.
 # Not recommended.
-verbose: true
+verbose: false
